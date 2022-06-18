@@ -13,12 +13,14 @@ function Header() {
   return (
     <header className={styles.header}>
       <div className={styles["header-container"]}>
-        <div
-          className={styles["click-block"]}
-          onClick={() => {
-            setProfileOpened(false);
-          }}
-        ></div>
+        {profileOpened && (
+          <div
+            className={styles["click-block"]}
+            onClick={() => {
+              setProfileOpened(false);
+            }}
+          ></div>
+        )}
         <div className={styles["header-block"]}>
           <div
             className={

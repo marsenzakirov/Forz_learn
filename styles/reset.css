@@ -18,3 +18,4 @@ font { color: inherit !important; font: inherit !important; color: inherit !impo
 marquee { overflow: inherit !important; -moz-binding: none; }
 blink { text-decoration: none; }
 nobr { white-space: normal; }
+button {border: none;}
