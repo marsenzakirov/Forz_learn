@@ -60,13 +60,40 @@ function Header() {
               />
             </div>
             <h2 className={styles.profile__name}>marsen</h2>
-            <Image
-              src={header_arrow}
-              alt="Picture of the author"
-              width="20px"
-              height="20px"
-              className={styles.profile__arrow}
-            />
+            <AnimatePresence>
+              {profileOpened ? (
+                <motion.div
+                  initial={{ rotate: 0 }}
+                  animate={{ rotate: 90 }}
+                  exit={{ rotate: 90 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={header_arrow}
+                    alt="Picture of the author"
+                    width="20px"
+                    height="20px"
+                    className={styles.profile__arrow}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ rotate: 90 }}
+                  animate={{ rotate: 0 }}
+                  exit={{ rotate: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={header_arrow}
+                    alt="Picture of the author"
+                    width="20px"
+                    height="20px"
+                    className={styles.profile__arrow}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <AnimatePresence>
               {profileOpened ? (
                 <motion.nav
