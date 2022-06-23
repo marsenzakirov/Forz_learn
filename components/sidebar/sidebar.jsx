@@ -11,7 +11,9 @@ import learn_icon from "../../img/header/learn.svg";
 function SideBar() {
   return (
     <div className={styles.sidebar}>
-      <div className={styles.sidebar__logo}>F обучение</div>
+      <Link href="/">
+        <a className={styles.sidebar__logo}>F обучение</a>
+      </Link>
       <nav className={styles["sidear-nav"]}>
         <ul className={styles["sidebar-list"]}>
           <li className={styles.sidebar__item}>
