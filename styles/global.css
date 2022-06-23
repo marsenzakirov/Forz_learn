@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Ubuntu-mudium";
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.ttf");
+}
+
+* {
+  font-family: "Ubuntu-mudium";
+}
+
 body {
   background-color: #fdfdfd;
 }
