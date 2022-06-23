@@ -1,0 +1,17 @@
+.courses {
+  padding-top: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.title {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 41px;
+  margin-bottom: 25px;
+}
+.courses_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    justify-content: center;
+}
