@@ -1,6 +1,10 @@
 import styles from "./cardCourse.module.css";
 import CoursePopup from "../course_popup/coursePopup";
-const Card = ({ item, setPopupActive, popupActive }) => {
+import { useState } from "react";
+
+const Card = ({ item }) => {
+  let [popupActive, setPopupActive] = useState(false);
+
   return (
     <li className={styles.courses__item}>
       <h2 className={styles.course_title}>{item.title}</h2>
