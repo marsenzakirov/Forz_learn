@@ -73,11 +73,101 @@ export async function getUser() {
       });
     return response;
   } catch (error) {
-    console.log(error);
+    return null;
   }
 }
 export const logout = (setIsAuthenticated, setIsVisible) => {
   localStorage.removeItem("token");
   setIsAuthenticated(false);
   setIsVisible(false);
+};
+
+export const changePassword = (
+  old_password,
+  new_password,
+  confrim_new_password,
+  setErrorChangePassword
+) => {
+  if (new_password == confrim_new_password) {
+    if (new_password.length <= 6) {
+      setErrorChangePassword("Новый пароль должен быть больше 6 символов");
+      return;
+    } else if (old_password == new_password) {
+      setErrorChangePassword("Новый пароль не должен совпадать со старым");
+      return;
+    } else if (old_password.length <= 6) {
+      setErrorChangePassword("Старый пароль должен быть больше 6 символов");
+      return;
+    }
+    try {
+      const token = localStorage.getItem("token");
+      const response = axios
+        .post(
+          "http://127.0.0.1:8000/api/authentication/change_password/",
+          { old_password, new_password },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
+        .then((res) => {
+          setErrorChangePassword(res.data.message);
+        });
+    } catch (error) {
+      setErrorChangePassword(error);
+    }
+  } else {
+    setErrorChangePassword("Пароли не совпадают");
+  }
+};
+
+export const changeEmail = (email, password, setErrorChangeEmail) => {
+  if (password.length <= 6) {
+    setErrorChangeEmail("Пароль должен быть больше 6 символов");
+    return;
+  }
+
+  const token = localStorage.getItem("token");
+
+  const response = axios
+    .post(
+      "http://127.0.0.1:8000/api/authentication/change_email/",
+      {
+        email,
+        password,
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+    .then((res) => {
+      setErrorChangeEmail(res.data.message);
+    })
+    .catch((error) => {
+      setErrorChangeEmail(error.response.data.error);
+    });
+};
+
+export const deleteAccount = (password, setErrorDeleteAccount) => {
+  if (password.length <= 6) {
+    setErrorDeleteAccount("Пароль должен быть больше 6 символов");
+    return;
+  }
+  const token = localStorage.getItem("token");
+  const response = axios
+    .post(
+      "http://127.0.0.1:8000/api/authentication/delete/",
+      {
+        password,
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    )
+    .then((res) => {
+      setErrorDeleteAccount(res.data.message);
+      localStorage.removeItem("token");
+    })
+    .catch((error) => {
+      setErrorDeleteAccount(error.response.data.error);
+    });
 };

@@ -7,6 +7,8 @@ import header_arrow from "../../img/header/header-arrow.svg";
 import { useEffect, useState, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { logout } from "../../action/user";
+import { changePassword } from "../../action/user";
+
 function Header({ setIsVisible, setIsAuthenticated, user }) {
   const [input, setInput] = useState("");
   const [profileOpened, setProfileOpened] = useState(false);
@@ -36,7 +38,7 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
               height="47px"
             />
             <input
-              type="text"
+              type="search"
               className={styles.search__input}
               placeholder="Поиск заданий"
               value={input}
@@ -110,8 +112,8 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
                       </Link>
                     </li>
                     <li className={styles.nav__item}>
-                      <Link href="#">
-                        <a>Коризна</a>
+                      <Link href="setting">
+                        <a>Настройки</a>
                       </Link>
                     </li>
                     <li className={styles.nav__item}>

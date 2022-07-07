@@ -26,12 +26,12 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const { pathname } = Router;
-    console.log(isAuthenticated);
-    if (isAuthenticated == true) {
+    if (isAuthenticated == true && (user != null) & (user != {})) {
       Router.push("/");
       getMe(setUser, user);
     }
-    if (isAuthenticated == false) {
+    if (isAuthenticated == false || user == null) {
+      localStorage.removeItem("token");
       Router.push("/sign");
     }
   }, [isAuthenticated]);
@@ -41,22 +41,22 @@ function MyApp({ Component, pageProps }) {
       value={{
         setIsVisible,
         setIsAuthenticated,
+        user,
+        setUser,
       }}
     >
-      <CookiesProvider>
-        {isVisible && (
-          <>
-            <Header
-              setIsAuthenticated={setIsAuthenticated}
-              setIsVisible={setIsVisible}
-              user={user}
-              setUser={setUser}
-            />
-            <SideBar />
-          </>
-        )}
-        <Component {...pageProps} />
-      </CookiesProvider>
+      {isVisible && (
+        <>
+          <Header
+            setIsAuthenticated={setIsAuthenticated}
+            setIsVisible={setIsVisible}
+            user={user}
+            setUser={setUser}
+          />
+          <SideBar />
+        </>
+      )}
+      <Component {...pageProps} />
     </VisibleContext.Provider>
   );
 }
