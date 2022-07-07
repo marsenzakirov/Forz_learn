@@ -4,12 +4,14 @@ import Link from "next/link";
 import searchIcon from "../../img/header/search-icon.svg";
 import peopleIcon from "../../img/header/user-solid.svg";
 import header_arrow from "../../img/header/header-arrow.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-function Header() {
+import { logout } from "../../action/user";
+import { changePassword } from "../../action/user";
+
+function Header({ setIsVisible, setIsAuthenticated, user }) {
   const [input, setInput] = useState("");
   const [profileOpened, setProfileOpened] = useState(false);
-  useEffect(() => {}, [input]);
   return (
     <header className={styles.header}>
       <div className={styles["header-container"]}>
@@ -36,7 +38,7 @@ function Header() {
               height="47px"
             />
             <input
-              type="text"
+              type="search"
               className={styles.search__input}
               placeholder="Поиск заданий"
               value={input}
@@ -59,7 +61,7 @@ function Header() {
                 height="30px"
               />
             </div>
-            <h2 className={styles.profile__name}>marsen</h2>
+            <h2 className={styles.profile__name}>{user.user}</h2>
             <AnimatePresence>
               {profileOpened ? (
                 <motion.div
@@ -110,8 +112,8 @@ function Header() {
                       </Link>
                     </li>
                     <li className={styles.nav__item}>
-                      <Link href="#">
-                        <a>Коризна</a>
+                      <Link href="setting">
+                        <a>Настройки</a>
                       </Link>
                     </li>
                     <li className={styles.nav__item}>
@@ -120,8 +122,14 @@ function Header() {
                       </Link>
                     </li>
                     <li className={styles.nav__item}>
-                      <Link href="#">
-                        <a>Выйти</a>
+                      <Link href="/sign">
+                        <a
+                          onClick={() => {
+                            logout(setIsAuthenticated, setIsVisible);
+                          }}
+                        >
+                          Выйти
+                        </a>
                       </Link>
                     </li>
                   </ul>

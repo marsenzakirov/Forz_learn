@@ -1,5 +1,3 @@
-import Header from "../../components/header/header";
-import SideBar from "../../components/sidebar/sidebar";
 import styles from "./courses.module.css";
 import { useState } from "react";
 import CardCourse from "../../components/cardCourse/cardCourse";
@@ -56,22 +54,12 @@ export default function Courses() {
   ]);
   return (
     <>
-      <Header />
-      <SideBar />
       <div className="container">
         <div className={styles.courses}>
           <h1 className={styles.title}>курсы</h1>
           <ul className={styles.courses_list}>
             {courses.map((card, index) => {
-              let [popupActive, setPopupActive] = useState(false);
-              return (
-                <CardCourse
-                  item={card}
-                  setPopupActive={setPopupActive}
-                  popupActive={popupActive}
-                  key={index}
-                />
-              );
+              return <CardCourse item={card} key={index} />;
             })}
           </ul>
         </div>
