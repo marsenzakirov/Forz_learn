@@ -2,11 +2,10 @@ from django.contrib.auth.models import BaseUserManager
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, first_name, last_name, password=None):
+    def create_user(self, email, user, password=None):
         user = self.model(
             email=self.normalize_email(email),
-            first_name=first_name,
-            last_name=last_name,
+            user=user,
         )
 
         user.set_password(password)
@@ -14,11 +13,10 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, first_name, last_name, password):
+    def create_superuser(self, email, user, password):
         user = self.create_user(
             email=email,
-            first_name=first_name,
-            last_name=last_name,
+            user=user,
             password=password,
         )
 
