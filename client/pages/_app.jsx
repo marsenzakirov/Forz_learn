@@ -3,7 +3,6 @@ import "../styles/global.css";
 import Header from "../components/header/header";
 import SideBar from "../components/sidebar/sidebar";
 import { useState, createContext } from "react";
-import { CookiesProvider, useCookies } from "react-cookie";
 import Sign from "./sign/sign";
 import { getUser } from "../action/user";
 import Router from "next/router";

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useContext } from "react";
-import { useCookies } from "react-cookie";
 export const registration = async (
   email,
   user,

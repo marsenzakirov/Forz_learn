@@ -1,7 +1,6 @@
 import styles from "./index.module.css";
 import CardCourse from "../components/cardCourse/cardCourse";
 import { useState } from "react";
-import { useCookies } from "react-cookie";
 
 const Index = () => {
   const [popularCourses, setPopularCourses] = useState([

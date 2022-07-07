@@ -10,7 +10,6 @@ import email from "../../img/header/email.svg";
 import log from "../../img/header/log.svg";
 import register from "../../img/header/register.svg";
 import { login, registration } from "../../action/user";
-import { useCookies } from "react-cookie";
 import { useEffect } from "react";
 const Sign = () => {
   const { setIsVisible, setIsAuthenticated, setUser } =
