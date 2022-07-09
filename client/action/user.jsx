@@ -18,7 +18,7 @@ export const registration = async (
     }
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/authentication/register/",
+        "http://forzlearn.std-1953.ist.mospolytech.ru/api/authentication/register/",
         {
           email,
           user,
@@ -45,7 +45,7 @@ export async function login(
 ) {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:8000/api/authentication/login/",
+      "http://forzlearn.std-1953.ist.mospolytech.ru/api/authentication/login/",
       {
         email,
         password,
@@ -64,7 +64,7 @@ export async function getUser() {
   const token = localStorage.getItem("token");
   try {
     const response = axios
-      .get("http://127.0.0.1:8000/api/authentication/user/", {
+      .get("http://forzlearn.std-1953.ist.mospolytech.ru/api/authentication/user/", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -102,7 +102,7 @@ export const changePassword = (
       const token = localStorage.getItem("token");
       const response = axios
         .post(
-          "http://127.0.0.1:8000/api/authentication/change_password/",
+          "http://forzlearn.std-1953.ist.mospolytech.ru/api/authentication/change_password/",
           { old_password, new_password },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -129,7 +129,7 @@ export const changeEmail = (email, password, setErrorChangeEmail) => {
 
   const response = axios
     .post(
-      "http://127.0.0.1:8000/api/authentication/change_email/",
+      "http://forzlearn.std-1953.ist.mospolytech.ru/api/authentication/change_email/",
       {
         email,
         password,
@@ -154,7 +154,7 @@ export const deleteAccount = (password, setErrorDeleteAccount) => {
   const token = localStorage.getItem("token");
   const response = axios
     .post(
-      "http://127.0.0.1:8000/api/authentication/delete/",
+      "http://forzlearn.std-1953.ist.mospolytech.ru/api/authentication/delete/",
       {
         password,
       },
