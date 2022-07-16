@@ -1,58 +1,16 @@
 import styles from "./courses.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardCourse from "../../components/cardCourse/cardCourse";
 import { VisibleContext } from "../_app";
+import { getCourses } from "../../action/course";
 export default function Courses() {
-  const [courses, setCourses] = useState([
-    {
-      title: "C++ 10light",
-      cost: 3020,
-      dscrp:
-        "На этом курсе вы ознокомитесь с основной базой с++. Этих знаний будет достаточно, чтобы решать задания ЕГЭ по информатике.",
-      fullDscrp:
-        "Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et voluptatem facilis ut delectus architecto sed facilis consequatur At iure blanditiis id dolorum eius.Sed molestiae voluptas et laudantium nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a architecto iste ut dolore ratione et minus ducimus ab internos maxime qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio quia non molestias velit sit internos magni et odio nihil et ipsam consequatur. ",
-    },
-    {
-      title: "C++ 10light",
-      cost: 3020,
-      dscrp:
-        "На этом курсе вы ознокомитесь с основной базой с++. Этих знаний будет достаточно, чтобы решать задания ЕГЭ по информатике.",
-      fullDscrp:
-        "Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et voluptatem facilis ut delectus architecto sed facilis consequatur At iure blanditiis id dolorum eius.Sed molestiae voluptas et laudantium nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a architecto iste ut dolore ratione et minus ducimus ab internos maxime qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio quia non molestias velit sit internos magni et odio nihil et ipsam consequatur. ",
-    },
-    {
-      title: "C++ 10light",
-      cost: 3020,
-      dscrp:
-        "На этом курсе вы ознокомитесь с основной базой с++. Этих знаний будет достаточно, чтобы решать задания ЕГЭ по информатике.",
-      fullDscrp:
-        "Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et voluptatem facilis ut delectus architecto sed facilis consequatur At iure blanditiis id dolorum eius.Sed molestiae voluptas et laudantium nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a architecto iste ut dolore ratione et minus ducimus ab internos maxime qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio quia non molestias velit sit internos magni et odio nihil et ipsam consequatur. ",
-    },
-    {
-      title: "C++ 10light",
-      cost: 3020,
-      dscrp:
-        "На этом курсе вы ознокомитесь с основной базой с++. Этих знаний будет достаточно, чтобы решать задания ЕГЭ по информатике.",
-      fullDscrp:
-        "Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et voluptatem facilis ut delectus architecto sed facilis consequatur At iure blanditiis id dolorum eius.Sed molestiae voluptas et laudantium nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a architecto iste ut dolore ratione et minus ducimus ab internos maxime qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio quia non molestias velit sit internos magni et odio nihil et ipsam consequatur. ",
-    },
-    {
-      title: "C++ 10light",
-      cost: 3020,
-      dscrp:
-        "На этом курсе вы ознокомитесь с основной базой с++. Этих знаний будет достаточно, чтобы решать задания ЕГЭ по информатике.",
-      fullDscrp:
-        "Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et voluptatem facilis ut delectus architecto sed facilis consequatur At iure blanditiis id dolorum eius.Sed molestiae voluptas et laudantium nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a architecto iste ut dolore ratione et minus ducimus ab internos maxime qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio quia non molestias velit sit internos magni et odio nihil et ipsam consequatur. ",
-    },
-    {
-      title: "C++ 12light",
-      cost: 3100,
-      dscrp:
-        "На этом курсе вы ознокомитесь с основной базой с++. Этих знаний будет достаточно, чтобы решать задания ЕГЭ по информатике.",
-      fullDscrp:
-        "Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et voluptatem facilis ut delectus architecto sed facilis consequatur At iure blanditiis id dolorum eius.Sed molestiae voluptas et laudantium nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a architecto iste ut dolore ratione et minus ducimus ab internos maxime qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio quia non molestias velit sit internos magni et odio nihil et ipsam consequatur. ",
-    },
-  ]);
+  const [courses, setCourses] = useState([])
+  useEffect(() => {
+    async function getCoursesMy() {
+      setCourses(await getCourses());
+    }
+    getCoursesMy();
+  }, [])
   return (
     <>
       <div className="container">
