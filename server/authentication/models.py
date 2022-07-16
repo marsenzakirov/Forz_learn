@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 from authentication.managers import UserManager
 # Create your models here.
+from courses.models import Course
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -14,6 +15,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(
         verbose_name='Администратор', default=False)
 
+    courses = models.ManyToManyField(Course, verbose_name='Курсы', blank=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['user']
 

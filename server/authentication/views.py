@@ -36,7 +36,8 @@ class AuthenticationViewSet(ModelViewSet):
             raise AuthenticationFailed({'error': 'неверный пароль'})
 
         if not user.is_active:
-            raise AuthenticationFailed({'error': 'пользователь не активирован'})
+            raise AuthenticationFailed(
+                {'error': 'пользователь не активирован'})
 
         refresh = RefreshToken.for_user(user)
         response = Response()
@@ -48,6 +49,11 @@ class AuthenticationViewSet(ModelViewSet):
     def get_user(self, request):
         user = request.user
         data = self.serializer_class(user).data
+        data['courses'] = [course for course in user.courses.all().values(
+            'id', 'title', 'description', 'cost', 'full_description')]
+
+        print(data)
+
         return Response(data)
 
     @action(methods=['POST'], detail=False, permission_classes=[IsAuthenticated], url_path='delete')
