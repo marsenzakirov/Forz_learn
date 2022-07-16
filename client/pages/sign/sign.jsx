@@ -3,12 +3,7 @@ import { VisibleContext } from "../_app";
 import Router from "next/router";
 import Input from "../../components/input/input";
 import styles from "./sign.module.css";
-import Image from "next/image";
-import user from "../../img/header/user.svg";
-import lock from "../../img/header/lock.svg";
-import email from "../../img/header/email.svg";
-import log from "../../img/header/log.svg";
-import register from "../../img/header/register.svg";
+
 import { login, registration } from "../../action/user";
 import { useEffect } from "react";
 const Sign = () => {
@@ -63,11 +58,10 @@ const Sign = () => {
             >
               <h2 className={styles.title}>войти</h2>
               <div className={styles.input_field}>
-                <Image
-                  src={user}
+                <img
+                  src="img/header/user.svg"
                   alt="Picture of the author"
-                  width="10px"
-                  height="10px"
+               
                   className={styles.input_field__img}
                 />
                 <Input
@@ -78,11 +72,10 @@ const Sign = () => {
                 />
               </div>
               <div className={styles.input_field}>
-                <Image
-                  src={lock}
+                <img
+                  src="img/header/lock.svg"
                   alt="Picture of the author"
-                  width="10px"
-                  height="10px"
+               
                   className={styles.input_field__img}
                 />
                 <Input
@@ -117,11 +110,10 @@ const Sign = () => {
             >
               <h2 className={styles.title}>Регистрация</h2>
               <div className={styles.input_field}>
-                <Image
-                  src={email}
+                <img
+                  src="img/header/email.svg"
                   alt="Picture of the author"
-                  width="10px"
-                  height="10px"
+               
                   className={styles.input_field__img}
                 />
                 <Input
@@ -133,11 +125,10 @@ const Sign = () => {
                 />
               </div>
               <div className={styles.input_field}>
-                <Image
-                  src={user}
+                <img
+                  src="img/header/user.svg"
                   alt="Picture of the author"
-                  width="10px"
-                  height="10px"
+               
                   className={styles.input_field__img}
                 />
                 <Input
@@ -149,11 +140,10 @@ const Sign = () => {
                 />
               </div>
               <div className={styles.input_field}>
-                <Image
-                  src={lock}
+                <img
+                  src="img/header/lock.svg"
                   alt="Picture of the author"
-                  width="10px"
-                  height="10px"
+               
                   className={styles.input_field__img}
                 />
                 <Input
@@ -165,11 +155,10 @@ const Sign = () => {
                 />
               </div>
               <div className={styles.input_field}>
-                <Image
-                  src={lock}
+                <img
+                  src="img/header/lock.svg"
                   alt="Picture of the author"
-                  width="10px"
-                  height="10px"
+               
                   className={styles.input_field__img}
                 />
                 <Input
@@ -218,8 +207,8 @@ const Sign = () => {
                 Зарегитрироваться
               </button>
             </div>
-            <Image
-              src={register}
+            <img
+              src="img/header/register.svg"
               alt="Picture of the author"
               className={styles.input_field__img}
             />
@@ -234,8 +223,8 @@ const Sign = () => {
                 Войти
               </button>
             </div>
-            <Image
-              src={log}
+            <img
+              src="img/header/log.svg"
               alt="Picture of the author"
               className={styles.input_field__img}
             />

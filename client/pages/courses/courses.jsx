@@ -1,6 +1,7 @@
 import styles from "./courses.module.css";
 import { useState } from "react";
 import CardCourse from "../../components/cardCourse/cardCourse";
+import { VisibleContext } from "../_app";
 export default function Courses() {
   const [courses, setCourses] = useState([
     {

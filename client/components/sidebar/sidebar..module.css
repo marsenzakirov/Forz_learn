@@ -46,9 +46,9 @@
   align-items: center;
   gap: 22px;
 }
-.sidebar__item span {
-  display: block !important;
-  width: 32px !important;
+.sidebar__item img {
+  display: block;
+  width: 32px;
 }
 .sidebar__link {
   font-size: 24px;

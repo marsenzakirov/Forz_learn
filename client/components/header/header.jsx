@@ -1,9 +1,5 @@
 import styles from "./header.module.css";
-import Image from "next/image";
 import Link from "next/link";
-import searchIcon from "../../img/header/search-icon.svg";
-import peopleIcon from "../../img/header/user-solid.svg";
-import header_arrow from "../../img/header/header-arrow.svg";
 import { useEffect, useState, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { logout } from "../../action/user";
@@ -31,8 +27,8 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
               (input.length > 0 ? styles.search__open : "")
             }
           >
-            <Image
-              src={searchIcon}
+            <img
+              src="img/header/search-icon.svg"
               alt="Picture of the author"
               width="47px"
               height="47px"
@@ -54,8 +50,8 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
             }}
           >
             <div className={styles.profile__logo}>
-              <Image
-                src={peopleIcon}
+              <img
+                src="img/header/user-solid.svg"
                 alt="Picture of the author"
                 width="30px"
                 height="30px"
@@ -70,8 +66,8 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
                   exit={{ rotate: 90 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Image
-                    src={header_arrow}
+                  <img
+                    src="img/header/header-arrow.svg"
                     alt="Picture of the author"
                     width="20px"
                     height="20px"
@@ -85,8 +81,8 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
                   exit={{ rotate: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Image
-                    src={header_arrow}
+                  <img
+                    src="img/header/header-arrow.svg"
                     alt="Picture of the author"
                     width="20px"
                     height="20px"
@@ -117,7 +113,7 @@ function Header({ setIsVisible, setIsAuthenticated, user }) {
                       </Link>
                     </li>
                     <li className={styles.nav__item}>
-                      <Link href="#">
+                      <Link href="/myCourses">
                         <a>Мои курсы</a>
                       </Link>
                     </li>

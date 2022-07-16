@@ -11,19 +11,7 @@ const popup = ({ active, setActive, item }) => {
     >
       <div className={styles.popup__content}>
         <h1 className={styles.title}>{item.title}</h1>
-        <p className={styles.dscrp}>
-          Lorem ipsum dolor sit amet. Et velit quas et dicta soluta aut error
-          deleniti sit dolorem quibusdam tempore sapiente. Qui odio maxime et
-          voluptatem facilis ut delectus architecto sed facilis consequatur At
-          iure blanditiis id dolorum eius. Sed molestiae voluptas et laudantium
-          nihil sit omnis magnam sed eligendi aut tenetur libero est excepturi
-          quia. Eos asperiores enim ea mollitia quos hic impedit pariatur et
-          consectetur dolorem aut quod sunt sed eius fuga. Et iure molestias a
-          architecto iste ut dolore ratione et minus ducimus ab internos maxime
-          qui porro dicta ut suscipit nemo. Aspernatur nostrum est distinctio
-          quia non molestias velit sit internos magni et odio nihil et ipsam
-          consequatur.
-        </p>
+        <p className={styles.dscrp}>{item.full_description}</p>
         <form className={styles.form}>
           <input
             type="text"

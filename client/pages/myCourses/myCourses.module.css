@@ -1,0 +1,16 @@
+.myCourses {
+  max-width: 1350px;
+  margin: 0 auto;
+}
+.courses__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 100px;
+}
+.myCourses {
+  padding-top: 100px;
+}
+.myCourses_title {
+  font-size: 42px;
+  margin-bottom: 40px;
+}

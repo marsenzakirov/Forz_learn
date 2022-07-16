@@ -1,12 +1,6 @@
 import styles from "./sidebar..module.css";
 import Link from "next/link";
-import Image from "next/image";
-import vk_icon from "../../img/header/vk.svg";
-import telegram_icon from "../../img/header/telegram.svg";
-import youtube_icon from "../../img/header/youtube.svg";
-import tasks_icon from "../../img/header/tasks.svg";
-import variant_icon from "../../img/header/variant.svg";
-import learn_icon from "../../img/header/learn.svg";
+
 
 function SideBar() {
   return (
@@ -19,8 +13,8 @@ function SideBar() {
           <li className={styles.sidebar__item}>
             <Link href="/courses">
               <a>
-                <Image
-                  src={learn_icon}
+                <img
+                  src="img/header/learn.svg"
                   alt="Picture of the author"
                   width="32px"
                   height="32px"
@@ -32,8 +26,8 @@ function SideBar() {
           <li className={styles.sidebar__item}>
             <Link href="/ege">
               <a>
-                <Image
-                  src={tasks_icon}
+                <img
+                  src={"img/header/tasks.svg"}
                   alt="Picture of the author"
                   width="32px"
                   height="32px"
@@ -45,8 +39,8 @@ function SideBar() {
           <li className={styles.sidebar__item}>
             <Link href="/tasks">
               <a>
-                <Image
-                  src={variant_icon}
+                <img
+                  src="img/header/variant.svg"
                   alt="Picture of the author"
                   width="32px"
                   height="32px"
@@ -60,8 +54,8 @@ function SideBar() {
           <li className={styles.sidebar__item}>
             <Link href="/1">
               <a>
-                <Image
-                  src={vk_icon}
+                <img
+                  src="img/header/vk.svg"
                   alt="Picture of the author"
                   width="32px"
                   height="32px"
@@ -73,8 +67,8 @@ function SideBar() {
           <li className={styles.sidebar__item}>
             <Link href="/1">
               <a>
-                <Image
-                  src={youtube_icon}
+                <img
+                  src="img/header/youtube.svg"
                   alt="Picture of the author"
                   width="32px"
                   height="32px"
@@ -86,8 +80,8 @@ function SideBar() {
           <li className={styles.sidebar__item}>
             <Link href="/1">
               <a>
-                <Image
-                  src={telegram_icon}
+                <img
+                  src="img/header/telegram.svg"
                   alt="Picture of the author"
                   width="32px"
                   height="32px"
